@@ -40,7 +40,6 @@ function listen(callback) {
 			ret.samples = [ ]
 		    }
 		    */
-		    count++
 		}
 		ok = 0
 	    }
@@ -59,15 +58,19 @@ function Server(req,res,next) {
     var url = req.path.split("/")
     if (url.length < 2) return res.send("ERROR")
     var num = Number(url[1])
+    console.log(req.path+":"+num)
     if (num < 0 || num > 3600000) return res.send("ERROR")
-    
+
+    res.setHeader("Content-Type","text/plain")
     var acc = listen(function(t,x,y,z) {
-	var a = Math.sqrt( x*x + y*y + z*z ) / 16384
+	//var a = Math.sqrt( x*x + y*y + z*z ) / 16384
+	res.write(t+","+x+","+y+","+z+"\n")
 	//console.log(t+":"+a)
     })
     
     setTimeout(function() {
 	acc.stop()
+	res.end()
     },num)
     
 }
