@@ -1,4 +1,4 @@
-"use script"
+"use strict"
 
 var fs = require("fs")
 
