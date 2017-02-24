@@ -1,0 +1,14 @@
+{
+  "name": "server-mma8451",
+  "version": "1.0.0",
+  "description": "MMA8451 Accelerometer Service",
+  "main": "mma8451.js",
+  "dependencies": {
+      "server": "git+ssh://oz.embeddedarm.com/u/gitroot/node/server.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Schmidt",
+  "license": "UNLICENSED"
+}
