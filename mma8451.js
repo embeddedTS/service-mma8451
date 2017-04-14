@@ -4,13 +4,9 @@ var fs = require("fs")
 
 function listen(callback) {
     var fd
-    var buffer
-    var x,y,z,t,ok,samples,ret
+    var x,y,z,t,state=0,ret
     
     fd = fs.createReadStream("/dev/input/event0")
-    buffer = new Buffer(16)
-    ok=0
-    samples=[]
     fd.on("data", function (chunk) {
 	var i=0,got=0
 	while (chunk.length - i >= 16) {
@@ -22,13 +18,13 @@ function listen(callback) {
 	    i += 16
 	    if (type == 3) {
 		switch (code) {
-		case 0: x = value; ok++; break
-		case 1: y = value; ok++; break
-		case 2: z = value; ok++; break
+		case 0: x = value; state++; break
+		case 1: y = value; state++; break
+		case 2: z = value; state++; break
 		}
 	    } else if (type == 0 && code == 0) {
-		//console.log("ok="+ok)
-		if (ok == 3) {
+		//console.log("state="+state)
+		if (state == 3) {
 		    t = s+us/1000000
 		    callback(t,x,y,z)
 		    got++
@@ -41,7 +37,7 @@ function listen(callback) {
 		    }
 		    */
 		}
-		ok = 0
+		state = 0
 	    }
 	    //console.log(s+"."+us+":"+type+":"+code+":"+value)
 	}
@@ -54,7 +50,7 @@ function listen(callback) {
 }
 
 
-function Server(req,res,next) {
+function Server(req,res) {
     var url = req.path.split("/")
     if (url.length < 2) return res.send("ERROR")
     var num = Number(url[1])
@@ -94,5 +90,5 @@ module.exports = function(app,exports,options) {
     wstream = fs.createWriteStream("/sys/devices/virtual/input/input0/scalemode")
     wstream.write("0\n")
     wstream.end()
-    app.use(endpoint, Server)
+    app.get(endpoint, Server)
 }
