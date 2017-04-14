@@ -1,7 +1,7 @@
 NXP MMA8451 3-axis Accelerometer Service plug-in for express-modular-server
 ===========================================================================
 
-This is a plug-in for [express-modular-server](https://github.com/michael-ts/express-modular-server/).  It provides a services which samples the NXP MMA8451 3-axis accelerator through the Linux event device for the specified amount of time.
+This is a plug-in for [express-modular-server](https://github.com/michael-ts/express-modular-server/).  It provides a service which samples the NXP MMA8451 3-axis accelerator through the Linux event device for the specified amount of time.
 
 If a string option is presented upon initialization, it is the base endpoint to serve accelerometer samples from.  If this option is not present,  a base endpoint of `/accelerometer/` is used.
 
@@ -42,6 +42,8 @@ Example (sample accelerometer for 1 second):
 # To Do
 
 Allow for an object to be passed to options.  Allow for a key in the object to specify the scale to use and the polling period.
+
+Don't hardcode the event device file.
 
 # Copyright
 

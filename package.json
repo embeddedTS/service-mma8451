@@ -1,6 +1,6 @@
 {
   "name": "service-mma8451",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MMA8451 Accelerometer Service",
   "main": "mma8451.js",
   "dependencies": {
