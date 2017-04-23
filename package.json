@@ -1,6 +1,6 @@
 {
   "name": "service-mma8451",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "MMA8451 Accelerometer Service",
   "main": "mma8451.js",
   "dependencies": {
@@ -8,6 +8,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+	"type": "git",
+	"url": "git+ssh://git@github.com/embeddedarm/service-mma8451.git"
+    },
+  "bugs": {
+	"url": "https://github.com/embeddedarm/service-mma8451/issues"
+  },
+  "homepage": "https://github.com/embeddedarm/service-mma8451#readme",
   "author": "Michael Schmidt",
   "license": "UNLICENSED"
 }
