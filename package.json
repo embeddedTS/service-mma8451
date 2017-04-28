@@ -1,6 +1,6 @@
 {
   "name": "service-mma8451",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "MMA8451 Accelerometer Service",
   "main": "mma8451.js",
   "dependencies": {
@@ -17,5 +17,5 @@
   },
   "homepage": "https://github.com/embeddedarm/service-mma8451#readme",
   "author": "Michael Schmidt",
-  "license": "UNLICENSED"
+  "license": "GPL 3.0"
 }
