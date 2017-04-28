@@ -51,9 +51,8 @@ function listen(callback) {
 
 
 function Server(req,res) {
-    var url = req.path.split("/")
-    if (url.length < 2) return res.send("ERROR")
-    var num = Number(url[1])
+    var num = parseInt(req.params.ms)
+    if (isNaN(num)) num = 0
     console.log(req.path+":"+num)
     if (num < 0 || num > 3600000) return res.send("ERROR")
 
@@ -90,5 +89,5 @@ module.exports = function(app,exports,options) {
     wstream = fs.createWriteStream("/sys/devices/virtual/input/input0/scalemode")
     wstream.write("0\n")
     wstream.end()
-    app.get(endpoint, Server)
+    app.get(endpoint+":ms", Server)
 }
