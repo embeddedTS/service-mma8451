@@ -9,7 +9,7 @@ If a string option is presented upon initialization, it is the base endpoint to 
 
     npm install service-mma8451
 
-The device you are running on must have kernel support for the mma8451.  This code has been tested on a Technologic Systems [TS-7680 with accelerometer option](https://wiki.embeddedarm.com/wiki/TS-7680#Accelerometer), compiling and installing support for boards shipped without it can be found [here](https://wiki.embeddedarm.com/wiki/TS-7680#Compile_the_Kernel).
+The device you are running on must have kernel support for the mma8451.  This code has been tested on a embeddedTS [TS-7680 with accelerometer option](https://wiki.embeddedTS.com/wiki/TS-7680#Accelerometer), compiling and installing support for boards shipped without it can be found [here](https://wiki.embeddedTS.com/wiki/TS-7680#Compile_the_Kernel).
 
 # Usage
 
